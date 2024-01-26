@@ -142,8 +142,14 @@ The script accepts the following arguments:
 - `emb_dim`: Choose the embedding dimension. It can be `16`, `32`, `64`,
   `128`
 - `gcn_layer`: Choose the embedding layer of GCN models (RGCN, CompGCN).
-  It can be `1` or `2`. Not mandatory. \## TO DO Write where the the
-  embedding are saved and where they have to be moved.
+  It can be `1` or `2`. Not mandatory.
+
+The embedding results can be found in the folder
+`results/{dataset}/{emb_model}_k={emb_dim}}` or
+`results/{dataset}/{emb_model}_layers={gcn_layer}_k={emb_dim}}` for GCN
+models. To incorporate the embedding into KASCRS training, copy the
+folder named after the embedding model into the
+`data/{dataset}/Embedding` directory
 
 # Model Training
 
@@ -182,25 +188,28 @@ The script accepts the following arguments:
   `_k={dim}`.
 - `dim`: This parameter sets the dimension of the pretrained graph
   embeddings.
-- `--dataset`: This parameter specifies the dataset that the model will
-  be trained and tested on. It can be `redial` or `inspired`
+- `dataset`: This parameter specifies the dataset that the model will be
+  trained and tested on. It can be `redial` or `inspired`
 - `mask-prob`: This parameter sets the probability of masking items in
   the sequences during training. Masking involves randomly replacing
   words in the input sequence with special tokens called masks.
 
 # Redial Results
 
-| model_name       | embedding_size | mask_prob | Recall@1       | Recall@10      | Recall@50      | weight_decay | dropout |
-|------------------|----------------|-----------|----------------|----------------|----------------|--------------|---------|
-| CompGCN_layers=2 | 32             | 0.6       | 0.120925377123 | 0.409154431894 | 0.759361531585 | 5.00         | 0.5     |
-| CompGCN_layers=1 | 32             | 0.6       | 0.120589978304 | 0.400284415413 | 0.745676117979 | 5.00         | 0.5     |
-| RGCN_layers=1    | 32             | 0.6       | 0.115851154178 | 0.407927275000 | 0.726942160000 | 5.00         | 0.5     |
-| RGCN_layers=2    | 32             | 0.6       | 0.103840450000 | 0.402694216000 | 0.713700000000 | 5.00         | 0.5     |
-| TransE           | 32             | 0.6       | 0.105899783038 | 0.402844154127 | 0.716761179789 | 5.00         | 0.5     |
-| TransH           | 32             | 0.6       | 0.113058997830 | 0.405284415413 | 0.746761179789 | 5.00         | 0.5     |
-| CompGCN_layers=2 | 16             | 0.6       | 0.118138806429 | 0.405441809446 | 0.726580179110 | 5.00         | 0.5     |
-| CompGCN_layers=2 | 64             | 0.6       | 0.120629647087 | 0.403732825071 | 0.743528083563 | 5.00         | 0.5     |
-| CompGCN_layers=2 | 128            | 0.6       | 0.113449622877 | 0.395726697519 | 0.768100079149 | 5.00         | 0.5     |
+| Model Name       | Embedding Size | Mask Prob | Recall@1 | Recall@10 | Recall@50 | Weight Decay | Dropout |
+|------------------|----------------|-----------|----------|-----------|-----------|--------------|---------|
+| CompGCN_layers=2 | 32             | 0.6       | 0.1209   | 0.4092    | 0.7594    | 5.00         | 0.5     |
+| CompGCN_layers=1 | 32             | 0.6       | 0.1206   | 0.4003    | 0.7457    | 5.00         | 0.5     |
+| RGCN_layers=1    | 32             | 0.6       | 0.1159   | 0.4079    | 0.7269    | 5.00         | 0.5     |
+| RGCN_layers=2    | 32             | 0.6       | 0.1038   | 0.4027    | 0.7137    | 5.00         | 0.5     |
+| TransE           | 32             | 0.6       | 0.1059   | 0.4028    | 0.7168    | 5.00         | 0.5     |
+| TransH           | 32             | 0.6       | 0.1131   | 0.4053    | 0.7468    | 5.00         | 0.5     |
+| CompGCN_layers=2 | 32             | 0.2       | 0.1057   | 0.4018    | 0.7451    | 5.00         | 0.5     |
+| CompGCN_layers=2 | 32             | 0.4       | 0.1145   | 0.4102    | 0.7519    | 5.00         | 0.5     |
+| CompGCN_layers=2 | 32             | 0.8       | 0.1129   | 0.3960    | 0.7479    | 5.00         | 0.5     |
+| CompGCN_layers=2 | 16             | 0.6       | 0.1181   | 0.4054    | 0.7266    | 5.00         | 0.5     |
+| CompGCN_layers=2 | 64             | 0.6       | 0.1206   | 0.4037    | 0.7435    | 5.00         | 0.5     |
+| CompGCN_layers=2 | 128            | 0.6       | 0.1134   | 0.3957    | 0.7681    | 5.00         | 0.5     |
 
 # Inspired Results
 
@@ -212,6 +221,9 @@ The script accepts the following arguments:
 | RGCN_layers=2    | 64             | 0.2       | 0.15762  | 0.42031   | 0.65195   | 2            | 0.3     | 0.0005 |
 | TransE           | 64             | 0.2       | 0.15859  | 0.42031   | 0.64414   | 2            | 0.3     | 0.0005 |
 | TransH           | 64             | 0.2       | 0.15859  | 0.42031   | 0.64414   | 2            | 0.3     | 0.0005 |
+| CompGCN_layers=2 | 64             | 0.4       | 0.123828 | 0.436281  | 0.626680  | 2            | 0.30    | 0.0005 |
+| CompGCN_layers=2 | 64             | 0.6       | 0.047656 | 0.405703  | 0.632031  | 2            | 0.30    | 0.0005 |
+| CompGCN_layers=2 | 64             | 0.8       | 0.047656 | 0.426875  | 0.636016  | 2            | 0.30    | 0.0005 |
 | CompGCN_layers=2 | 16             | 0.2       | 0.15816  | 0.39179   | 0.61787   | 2            | 0.3     | 0.0005 |
 | CompGCN_layers=2 | 32             | 0.2       | 0.15931  | 0.39375   | 0.62611   | 2            | 0.3     | 0.0005 |
 | CompGCN_layers=2 | 128            | 0.2       | 0.15469  | 0.40586   | 0.65781   | 2            | 0.3     | 0.0005 |

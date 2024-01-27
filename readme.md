@@ -194,7 +194,7 @@ The script accepts the following arguments:
   the sequences during training. Masking involves randomly replacing
   words in the input sequence with special tokens called masks.
 
-# Redial Results
+# ReDial Results
 
 | Model Name       | Embedding Size | Mask Prob | Recall@1 | Recall@10 | Recall@50 | Weight Decay | Dropout |
 |------------------|----------------|-----------|----------|-----------|-----------|--------------|---------|
@@ -211,9 +211,9 @@ The script accepts the following arguments:
 | CompGCN_layers=2 | 64             | 0.6       | 0.1206   | 0.4037    | 0.7435    | 5.00         | 0.5     |
 | CompGCN_layers=2 | 128            | 0.6       | 0.1134   | 0.3957    | 0.7681    | 5.00         | 0.5     |
 
-# Inspired Results
+# INSPIRED Results
 
-| model_name       | embedding_size | mask_prob | Recall@1 | Recall@10 | Recall@50 | weight_decay | dropout | lr     |
+| Model Name       | Embedding Size | Mask Prob | Recall@1 | Recall@10 | Recall@50 | Weight Decay | Dropout | LR     |
 |------------------|----------------|-----------|----------|-----------|-----------|--------------|---------|--------|
 | CompGCN_layers=2 | 64             | 0.2       | 0.1609   | 0.4480    | 0.6477    | 2            | 0.3     | 0.0005 |
 | CompGCN_layers=1 | 64             | 0.2       | 0.1585   | 0.4203    | 0.6480    | 2            | 0.3     | 0.0005 |
@@ -221,9 +221,9 @@ The script accepts the following arguments:
 | RGCN_layers=2    | 64             | 0.2       | 0.1576   | 0.4203    | 0.6519    | 2            | 0.3     | 0.0005 |
 | TransE           | 64             | 0.2       | 0.1586   | 0.4203    | 0.6441    | 2            | 0.3     | 0.0005 |
 | TransH           | 64             | 0.2       | 0.1586   | 0.4203    | 0.6441    | 2            | 0.3     | 0.0005 |
-| CompGCN_layers=2 | 64             | 0.4       | 0.1238   | 0.4363    | 0.6267    | 2            | 0.30    | 0.0005 |
-| CompGCN_layers=2 | 64             | 0.6       | 0.0477   | 0.4057    | 0.6320    | 2            | 0.30    | 0.0005 |
-| CompGCN_layers=2 | 64             | 0.8       | 0.0477   | 0.4269    | 0.6360    | 2            | 0.30    | 0.0005 |
+| CompGCN_layers=2 | 64             | 0.4       | 0.1238   | 0.4363    | 0.6267    | 2            | 0.3     | 0.0005 |
+| CompGCN_layers=2 | 64             | 0.6       | 0.0477   | 0.4057    | 0.6320    | 2            | 0.3     | 0.0005 |
+| CompGCN_layers=2 | 64             | 0.8       | 0.0477   | 0.4269    | 0.6360    | 2            | 0.3     | 0.0005 |
 | CompGCN_layers=2 | 16             | 0.2       | 0.1581   | 0.3918    | 0.6179    | 2            | 0.3     | 0.0005 |
 | CompGCN_layers=2 | 32             | 0.2       | 0.1593   | 0.3937    | 0.6261    | 2            | 0.3     | 0.0005 |
 | CompGCN_layers=2 | 128            | 0.2       | 0.1547   | 0.4059    | 0.6578    | 2            | 0.3     | 0.0005 |

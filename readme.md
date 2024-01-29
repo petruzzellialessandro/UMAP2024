@@ -116,7 +116,7 @@ source /path/to/env/kg_embedding/bin/activate
 3.  Install the required libraries using the command:
 
 ``` {bash}
-pip install -r /KgEmbedding/requirements.txt
+pip install -r ./KgEmbedding/requirements.txt
 ```
 
 ## Run the Knowledge Graph Embedding Learner
@@ -130,7 +130,8 @@ source /path/to/env/kg_embedding/bin/activate
 2.  Run the script
 
 ``` {bash}
-python /KgEmbedding/KgEmbedding.py --dataset={dataset} --emb_model={emb_model} --emb_dim={emb_dim} --gcn_layer={gcn_layer}
+cd ./KgEmbedding
+python KgEmbedding.py --dataset={dataset} --emb_model={emb_model} --emb_dim={emb_dim} --gcn_layer={gcn_layer}
 ```
 
 The script accepts the following arguments:
@@ -177,7 +178,7 @@ pip install -r requirements.txt
 To train and test the model:
 
 ``` {bash}
-pip main.py --embedding-conf={embedding-conf} --dim={dim} --dataset={dataset} --mask_prob={mask_prob}
+python main.py --embedding-conf={embedding-conf} --dim={dim} --dataset={dataset} --mask_prob={mask_prob}
 ```
 
 The script accepts the following arguments:

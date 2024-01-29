@@ -34,7 +34,8 @@ class SCRSDataset(Dataset):
         evaluation_mode=False,
         ignore_role=False,
         user_only=True,
-        dataset_name="redial"
+        dataset_name="redial",
+        remove_prop = []
     ): 
         self.mlm_probability = mlm_probability
         self.test_truncate = test_truncate
@@ -83,7 +84,6 @@ class SCRSDataset(Dataset):
         if self.ignore_role:
             x = self.__drop_role__(x)
 
-        #x = self.__remove_entities__(x, "Actors")
 
         x = self.__trim_sequences__(x)
         x = self.__get_sequence_target__(x)

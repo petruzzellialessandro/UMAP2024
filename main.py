@@ -35,14 +35,9 @@ mask_prob = float(args.mask_prob.strip())
 assert dataset in ['redial', 'inspired']
 confs = list(map(lambda x: re.sub('_k=[0-9]*', "", x), os.listdir(f"./data/{dataset}/Embeddings/")))
 confs.append("random")
-abls_list = list(map(lambda x: re.sub('_k=[0-9]*', "", x), os.listdir(f"./data/{dataset}/Embeddings/{dataset}_abl")))
-confs.extend(abls_list)
 assert embedding_conf in confs
 sub_folder = None
-if embedding_conf in abls_list:
-    sub_folder = os.path.join(f'{dataset}_abl', embedding_conf)
-else: 
-    sub_folder = embedding_conf
+sub_folder = embedding_conf
 assert dim in [16, 32, 64, 128, 256]
 if len(remove_prop)==0:
     remove_prop = []
@@ -94,7 +89,7 @@ args_dict = {
     'knowledge_path': os.path.join(parent_folder, "data", dataset, "Embeddings", f"{sub_folder}_k={dim}", "entities_to_id.tsv") if embedding_conf!="random" else None, 
     'embeddings_path': os.path.join(parent_folder, "data", dataset, "Embeddings", f"{sub_folder}_k={dim}", "embeddings.tsv") if embedding_conf!="random" else None, 
 }
-export_root = os.path.join(parent_folder, dataset, "new_abl_bk", f'mask={mask_prob}', f"{embedding_conf}")
+export_root = os.path.join(parent_folder, dataset, f'mask={mask_prob}', f"{embedding_conf}")
 print(export_root)
 os.makedirs(export_root, exist_ok=True)
 model = BERTModel(args_dict)

@@ -10,7 +10,7 @@ from pathlib import Path
 
 
 class BertDataloader(AbstractDataloader):
-    def __init__(self, dataset, MAX_SEQ_LENGTH, batch_size):
+    def __init__(self, dataset, MAX_SEQ_LENGTH, batch_size, remove_prop=[], mask_prob=0.6):
         self.dataset = dataset
         self.parent_folder = Path(__file__).parent.parent
         self.train_batch_size = batch_size
@@ -32,12 +32,13 @@ class BertDataloader(AbstractDataloader):
             "sliding": False,
             "test_truncate": False,
             "pos_only": False,
-            "mlm_probability": 0.6,
+            "mlm_probability": mask_prob,
             "use_standard_collator": False,
             "train_truncate": True,
             "ignore_role": True,
             "user_only": False,
-            "dataset_name": self.dataset
+            "dataset_name": self.dataset,
+            "remove_prop": remove_prop
         }
         self.test_conf = {
             "tokenizer": tokenizer,

@@ -95,8 +95,9 @@ which was submitted to `UMAP 2024`.
 
 # Preliminaries
 
-To run the KASCRS, you first need to set up the Python environment and
-then execute the script. This will learn the knowledge graph embedding.
+To run the KASCRS, you first need to set up the Python environment and then execute the script. This will learn the knowledge graph embedding.
+
+To execute the scripts you need an Ubuntu machine with CUDA 12.4 and Python 3.9.13.
 
 ## Environment for Knowledge Graph Embedding
 

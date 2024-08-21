@@ -1,6 +1,0 @@
-# Ignore the Inspired Embeddings directory
-data/inspired/Embeddings
-
-# Ignore the Redial Embeddings directory
-data/redial/Embeddings
-*.qmd
